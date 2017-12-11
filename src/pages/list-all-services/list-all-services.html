@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Ionic Mechanic Service
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="bg-style">
+
+<ion-searchbar (ionInput)="filterServiceCar($event)" [(ngModel)]="searchText"></ion-searchbar>
+
+<ion-list class="bg-style">
+
+  <ion-item-sliding *ngFor= 'let servicecar of servicecarsvec'>
+  <button ion-item (click)="editServiceCar(servicecar.id)">
+    <ion-img src="assets/imgs/icons8-serviço-de-carro-50.png"></ion-img>
+
+   <h1>{{ servicecar.nameservice }}</h1>
+   <h2>{{ servicecar.duedate }}</h2>
+   <h2>{{ servicecar.platecar }}</h2>
+   <h2>{{ servicecar.problemcar }}</h2>
+   <h2>{{ servicecar.car_name }}</h2>
+
+ </button>
+
+ <ion-item-options side="left">
+  <button ion-button color="danger" (click)="removeServiceCar(servicecar)">
+    <ion-icon name="trash"></ion-icon>
+    Excluir
+  </button>
+</ion-item-options>
+  </ion-item-sliding>
+</ion-list>
+
+<ion-fab right bottom>
+   <button ion-fab color="dark" (click)="addServiceCar()"><ion-icon name="add"></ion-icon></button>
+ </ion-fab>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <p>Total: {{ servicecarsvec.length }}</p>
+    <ion-list>
+      <ion-item no-lines>
+        <ion-label>Listar inativos</ion-label>
+        <ion-toggle name="listarInativos" color="dark" [(ngModel)]="onlyInactives" (ionChange)="getAllServiceCars()"></ion-toggle>
+      </ion-item>
+    </ion-list>
+  </ion-toolbar>
+</ion-footer>

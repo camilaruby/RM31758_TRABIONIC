@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Ionic Mechanic Service
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding class="bg-style">
+  <ion-list class="bg-style">
+    
+   <ion-item class="bg-style">
+     <ion-label  stacked>Nome</ion-label>
+     <ion-input class="bg-style" type="text" name="name" [(ngModel)]="model.nameservice"></ion-input>
+   </ion-item>
+
+   <ion-item class="bg-style">
+     <ion-label stacked>Data do Serviço</ion-label>
+     <ion-datetime displayFormat="DD/MM/YYYY" name="duedate" min="2017" max="2020-12-31" [(ngModel)]="model.duedate"></ion-datetime>
+   </ion-item>
+
+   <ion-item class="bg-style">
+     <ion-label stacked>Carro</ion-label>
+     <ion-select  name="car_id" [(ngModel)]="model.car_id">
+       <ion-option *ngFor="let car of cars" value="{{ car.id }}">{{ car.name }}</ion-option>
+     </ion-select>
+   </ion-item>
+
+   <ion-item class="bg-style">
+     <ion-label>Placa</ion-label>
+     <ion-input class="bg-style" type= "text" name="platecar" [(ngModel)]="model.platecar"></ion-input>
+   </ion-item>
+
+   <ion-item class="bg-style">
+     <ion-label>Problema</ion-label>
+     <ion-input class="bg-style" type= "text" name="problemcar" [(ngModel)]="model.problemcar"></ion-input>
+   </ion-item>
+
+   <ion-item class="bg-style">
+   <ion-label>Ativo</ion-label>
+   <ion-checkbox name="ativo" color="dark" [(ngModel)]="model.ativo"></ion-checkbox>
+ </ion-item>
+
+ </ion-list>
+
+ <button ion-button block color="dark" (click)="save()">Salvar</button>
+
+</ion-content>

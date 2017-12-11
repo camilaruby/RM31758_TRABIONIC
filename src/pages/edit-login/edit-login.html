@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Ionic Mechanic Service
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding class="bg-style">
+  <ion-list class="bg-style">
+    <p class="bg-style" style="width:15px height:15px font-size:30px"><b>MECHANIC SERVICE</b></p>
+    <ion-img class="bg-style" style="width:300px; height:210px" src="assets/imgs/carrocapa.png"></ion-img>
+
+   <ion-item class="bg-style">
+     <ion-label  stacked>Email</ion-label>
+     <ion-input class="bg-style" type="text" name="email" [(ngModel)]="model.email"></ion-input>
+   </ion-item>
+
+   <ion-item class="bg-style">
+     <ion-label stacked>Senha</ion-label>
+     <ion-input class="bg-style" type="password" name="password" [(ngModel)]="model.password"></ion-input>
+   </ion-item>
+
+ </ion-list>
+
+ <button ion-button block color="dark" (click)="save()">Salvar</button>
+
+</ion-content>
